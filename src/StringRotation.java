@@ -5,25 +5,12 @@ Given two strings, write a function to check if one string is a rotation of the 
 public class StringRotation {
 
 	static public boolean stringRotation(String a, String b) {
-		int n = a.length();
-		int m = b.length();
-
-		if (n != m) {
-			return false;
-		}
-
-		for (int i = 0; i < n; i++) {
-			if (a.charAt(i) != b.charAt(n - 1 - i)) {
-				return false;
-			}
-		}
-
-		return true;
+		return (a.length() == b.length()) && ((a + a).indexOf(b) != -1);
 	}
 
 	public static void main(String[] args) {
-		String a = "abc";
-		String b = "cba";
+		String a = "tionssolu";
+		String b = "solutions";
 		System.out.println(stringRotation(a, b));
 	}
 
