@@ -2,41 +2,44 @@
  * Question:
 Given a string that contains words separated by spaces, write a function that reverses the order of the words.
  */
-import java.util.Stack;
 
 public class WordOrderReversal {
 
-	static public String reversal(String s) {
+	static public void swap(char[] chars, int i, int j) {
+		char tmp = chars[i];
+		chars[i] = chars[j];
+		chars[j] = tmp;
+	}
+	
+	static public String reverseOrder(String s) {
 		int n = s.length();
-		if (n == 0) { return s; }
+		char[] chars = s.toCharArray();
 		
-		StringBuilder sb = new StringBuilder();
-		Stack<String> stack = new Stack<String>();
+		// reserves every char
+		for (int i = 0; i < (n % 2 == 0 ? n / 2 : n / 2 + 1); i++) {
+			swap(chars, i, n - 1 - i);
+		}
 		
-		for (int i = 0; i < n; i++) {
-			if (s.charAt(i) == ' ') {
-				stack.push(sb.toString());
-				sb = new StringBuilder();
+		// reserves every word
+		StringBuilder str = new StringBuilder();
+		StringBuilder word = new StringBuilder();
+		for (int i = 0; i < chars.length; i++) {
+			if (chars[i] == ' ') {
+				str.append(word.reverse() + " ");
+				word = new StringBuilder();
 			}
 			else {
-				sb.append(s.charAt(i));
+				word.append(chars[i]);
 			}
 		}
-		stack.push(sb.toString());
-		sb = new StringBuilder();
+		str.append(word.reverse());
 		
-		while (!stack.isEmpty()) {
-			String v = stack.pop();
-			sb.append(v);
-			if (!stack.isEmpty()) {
-				sb.append(" ");
-			}
-		}
-		return sb.toString();
+		return str.toString();
 	}
+	
 	public static void main(String[] args) {
-		String s = "apple is great";
-		System.out.println(reversal(s));
+		String s = "apple is grea";
+		System.out.println(reverseOrder(s));
 	}
 
 }
