@@ -13,7 +13,7 @@ public class BitSwap {
 
 	public static void main(String[] args) {
 		int v = 4;
-		System.out.println(swap(4));
+		System.out.println(swap(v));
 	}
 
 }
