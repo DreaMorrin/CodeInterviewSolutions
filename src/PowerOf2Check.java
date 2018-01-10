@@ -7,16 +7,7 @@ Given an integer, write a function to check if the number is a power of two usin
 public class PowerOf2Check {
 
 	static boolean checkPowerOf2(int v) {
-		
-		while (v != 1) {
-			
-			if ((v & 1) == 1) {
-				return false;
-			}
-			
-			v >>= 1;
-		}
-		return true;
+		return (v & (v - 1) ) == 0 ;
 	}
 
 	public static void main(String[] args) {
