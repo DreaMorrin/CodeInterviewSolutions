@@ -14,13 +14,16 @@ public class DoublyLinkedListNodeRemoval {
 		
 		while (root != null) {
 			if (root.value == v) {
-				root.prev.next = root.next;
+				
+				if (root.prev != null) {
+					root.prev.next = root.next;	
+				}
 				
 				if (root.next != null) {
 					root.next.prev = root.prev;
 				}
 				
-				return;
+				break;
 			}
 			
 			root = root.next;
