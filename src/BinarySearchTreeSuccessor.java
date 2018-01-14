@@ -4,12 +4,6 @@ Given the root of a binary search tree and a value, find the "successor" of that
  */
 public class BinarySearchTreeSuccessor {
 	
-	class Node {
-		Node left;
-		Node right;
-		int val;
-	}
-	
 	static Node successor(Node root, Node target) {
 		
 		Node parent = null;

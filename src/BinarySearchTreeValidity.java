@@ -4,12 +4,6 @@ Given the pointer to a node, determine if the node is the root of a binary searc
  */
 public class BinarySearchTreeValidity {
 	
-	class Node {
-		Node left;
-		Node right;
-		int val;
-	}
-	
 	static boolean isValidBST(Node root) {
 		if (root == null) {
 			return true;
